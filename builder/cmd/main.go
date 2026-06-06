@@ -16,6 +16,7 @@ func main() {
 		Build()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v", fmt.Sprintln(err))
+		return
 	}
 	fmt.Printf("created pc details: %+v\n", pc)
 }
