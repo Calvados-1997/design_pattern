@@ -12,42 +12,42 @@ type PC struct {
 	OS      string
 }
 
-type PcBuilder struct {
+type pcBuilder struct {
 	pc *PC
 }
 
-func NewPcBuilder() *PcBuilder {
-	return &PcBuilder{
+func NewPcBuilder() *pcBuilder {
+	return &pcBuilder{
 		pc: &PC{},
 	}
 }
 
-func (pb *PcBuilder) SetCPU(cpuName string) *PcBuilder {
+func (pb *pcBuilder) SetCPU(cpuName string) *pcBuilder {
 	pb.pc.CPU = cpuName
 	return pb
 }
 
-func (pb *PcBuilder) SetMemory(memorySize byte) *PcBuilder {
+func (pb *pcBuilder) SetMemory(memorySize byte) *pcBuilder {
 	pb.pc.Memory = memorySize
 	return pb
 }
 
-func (pb *PcBuilder) SetStorage(storageSize byte) *PcBuilder {
+func (pb *pcBuilder) SetStorage(storageSize byte) *pcBuilder {
 	pb.pc.Storage = storageSize
 	return pb
 }
 
-func (pb *PcBuilder) SetWifi(isWifi bool) *PcBuilder {
+func (pb *pcBuilder) SetWifi(isWifi bool) *pcBuilder {
 	pb.pc.Wifi = isWifi
 	return pb
 }
 
-func (pb *PcBuilder) SetOS(osType string) *PcBuilder {
+func (pb *pcBuilder) SetOS(osType string) *pcBuilder {
 	pb.pc.OS = osType
 	return pb
 }
 
-func (pb *PcBuilder) Build() (*PC, error) {
+func (pb *pcBuilder) Build() (*PC, error) {
 	// validation
 	if pb.pc.CPU == "" {
 		return nil, errors.New("CPU is required.")
