@@ -4,7 +4,7 @@ import (
 	"errors"
 )
 
-type pc struct {
+type PC struct {
 	CPU     string
 	Memory  byte
 	Storage byte
@@ -13,12 +13,12 @@ type pc struct {
 }
 
 type PcBuilder struct {
-	pc *pc
+	pc *PC
 }
 
 func NewPcBuilder() *PcBuilder {
 	return &PcBuilder{
-		pc: &pc{},
+		pc: &PC{},
 	}
 }
 
@@ -47,7 +47,7 @@ func (pb *PcBuilder) SetOS(osType string) *PcBuilder {
 	return pb
 }
 
-func (pb *PcBuilder) Build() (*pc, error) {
+func (pb *PcBuilder) Build() (*PC, error) {
 	// validation
 	if pb.pc.CPU == "" {
 		return nil, errors.New("CPU is required.")
@@ -56,7 +56,7 @@ func (pb *PcBuilder) Build() (*pc, error) {
 		return nil, errors.New("Memory is required.")
 	}
 
-	pc := &pc{
+	pc := &PC{
 		CPU:     pb.pc.CPU,
 		Memory:  pb.pc.Memory,
 		Storage: pb.pc.Storage,
